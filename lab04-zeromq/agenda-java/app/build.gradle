@@ -1,0 +1,32 @@
+plugins {
+id 'application'
+// Plugin para usar o projeto Lombok -- https://projectlombok.org/
+// https://plugins.gradle.org/plugin/io.freefair.lombok
+// É necessário instalar as extensões do Lombok no VSCode e IntelliJ
+id "io.freefair.lombok" version "8.0.1"
+}
+repositories {
+mavenCentral()
+}
+dependencies {
+implementation 'org.zeromq:jeromq:0.5.4'
+// Biblioteca que facilita a conversão de objetos Java para JSON e vice-versa
+implementation 'com.google.code.gson:gson:2.10.1'
+testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
+testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+implementation 'com.google.guava:guava:31.1-jre'
+}
+application {
+// Define a classe principal que será será usado quando a tarefa run for executada
+mainClass = 'engtelecom.std.ServidorAgenda'
+}
+// Criando uma nova tarefa gradle para executar a classe do Cliente
+task runCliente(type: JavaExec) {
+group = "Execution"
+description = "Executa a classe ClienteAgenda"
+classpath = sourceSets.main.runtimeClasspath
+mainClass = "engtelecom.std.ClienteAgenda"
+}
+tasks.named('test') {
+useJUnitPlatform()
+}

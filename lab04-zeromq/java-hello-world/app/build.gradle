@@ -1,0 +1,25 @@
+plugins {
+id 'java'
+id 'application'
+}
+repositories {
+mavenCentral()
+}
+dependencies {
+// inclua essa dependência para o JeroMQ
+implementation 'org.zeromq:jeromq:0.5.4'
+testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
+testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+implementation 'com.google.guava:guava:31.1-jre'
+}
+application {
+// Define a classe principal que será será usado quando a tarefa run for executada
+mainClass = 'engtelecom.std.ServidorHello'
+}
+// Criando uma nova tarefa gradle para executar a classe do Cliente
+task runCliente(type: JavaExec) {
+group = "Execution"
+description = "Executa a classe ClienteHello"
+classpath = sourceSets.main.runtimeClasspath
+mainClass = "engtelecom.std.ClienteHello"
+}
