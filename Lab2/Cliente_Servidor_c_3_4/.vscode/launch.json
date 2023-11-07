@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/rhenzo/STD/AULA_RPC",
-      "program": "/home/rhenzo/STD/AULA_RPC/build/Debug/outDebug",
+      "cwd": "/home/rhenzo/STD/Lab2/Cliente_Servidor_c_3_4",
+      "program": "/home/rhenzo/STD/Lab2/Cliente_Servidor_c_3_4/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
